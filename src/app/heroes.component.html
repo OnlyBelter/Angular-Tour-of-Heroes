@@ -1,0 +1,20 @@
+  <!--// 这里的双大括号是Angular中的插值表达式绑定语法。它们表示组件的title和hero属性的值会作为字符串插入到HTML标签中间。
+  // 这里的语法跟angualrJs中相同，这里相当于将html片段插入到了js中
+  // 下面的<input>一行，在表单元素<input>和组件的hero.name属性之间建立双向绑定
+  // 虽然NgModel是一个有效的Angular指令，但它默认情况下却是不可用的。 它属于一个可选模块FormsModule。 我们必须选择使用那个模块。-->
+
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+<div *ngIf="selectedHero">
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
